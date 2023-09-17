@@ -1,17 +1,16 @@
 #include <iostream>
 #include <vector>
 
-std::vector <std::string> one = { "test_string1", "test_string2" };
-std::vector <std::string> two;
-
 template < class T >
-constexpr std::remove_reference_t<T>&& move_vectors(T&& one) noexcept;
-void move_vectors(...) {
-	two = std::move(one);
+std::vector<T> move_vectors(std::vector<T> first) {
+	return  std::move(first);
 }
 
 int main() {
-	move_vectors();
+	std::vector<std::string> one = { "test_string1", "test_string2" };
+	std::vector<std::string> two;
+	two = move_vectors(one);
+	for (auto& i : two)
+		std::cout << i << std::endl;
 	return 0;
 }
-
