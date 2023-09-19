@@ -2,7 +2,7 @@
 #include <vector>
 
 template < class T >
-std::vector<T> move_vectors(std::vector<T> first) {
+std::vector<T> move_vectors(std::vector<T> &first) {
 	return  std::move(first);
 }
 
